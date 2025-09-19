@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 3rd Month Anniversary ❤</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6f2;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      margin-top: 100px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background: #ff4da6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e60073;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Happy 3rd Month Anniversary 💖</h1>
+    <p>Enter your name to continue, meri jaan 😍:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name...">
+    <button onclick="checkName()">Submit</button>
+    <p id="message" class="error"></p>
+  </div>
+
+  <script>
+    function checkName() {
+      let name = document.getElementById("nameInput").value.trim().toLowerCase();
+      if (name === "khusu") {
+        window.location.href = "second.html"; // next page
+      } else {
+        document.getElementById("message").innerText =
+          "Kon ho tm dushmaan, tum meri khusu nahi ho...chali jaao yaha seh 😑";
+      }
+    }
+  </script>
+</body>
+</html>

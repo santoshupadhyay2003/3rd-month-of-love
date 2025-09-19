@@ -3,60 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy 3rd Month Anniversary ❤</title>
+  <title>3rd Month of Love</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #ffe6f2;
+      font-family: 'Poppins', sans-serif;
       text-align: center;
-      padding: 50px;
+      background: linear-gradient(135deg, #ffe6f0, #e6f7ff);
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
-    .container {
-      margin-top: 100px;
+
+    h1 {
+      margin-top: 80px;
+      font-size: 40px;
+      color: #ff4da6;
+      text-shadow: 2px 2px #fff;
     }
+
     input {
       padding: 10px;
+      border: 2px solid #ff99cc;
+      border-radius: 10px;
       font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 20px;
-      margin-left: 10px;
-      background: #ff4da6;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #e60073;
-    }
-    .error {
-      color: red;
-      font-weight: bold;
       margin-top: 20px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(45deg, #ff80bf, #ff66a3);
+      color: white;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 15px rgba(0,0,0,0.3);
+    }
+
+    #message {
+      margin-top: 40px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff3399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Moving text animation */
+    .moving-text {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: marquee 12s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .character {
+      width: 100px;
+    }
+
+    /* Hidden iframe for music */
+    #bg-music {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>💖 Happy 3rd Month Anniversary 💖</h1>
-    <p>Enter your name to continue, meri jaan 😍:</p>
-    <input type="text" id="nameInput" placeholder="Enter your name...">
-    <button onclick="checkName()">Submit</button>
-    <p id="message" class="error"></p>
-  </div>
+  <h1>Enter Your Name 💌</h1>
+  <input type="text" id="nameInput" placeholder="Type here...">
+  <br>
+  <button onclick="checkName()">Submit</button>
+  <div id="message"></div>
+
+  <!-- Hidden music player -->
+  <iframe id="bg-music" width="0" height="0" 
+    src="" 
+    frameborder="0" allow="autoplay"></iframe>
 
   <script>
     function checkName() {
-      let name = document.getElementById("nameInput").value.trim().toLowerCase();
+      const name = document.getElementById("nameInput").value.trim().toLowerCase();
+      const messageDiv = document.getElementById("message");
+      const music = document.getElementById("bg-music");
+
       if (name === "khusu") {
-        window.location.href = "second.html"; // next page
+        messageDiv.innerHTML = `
+          <img src="https://media.tenor.com/4YQ0z7DhcKQAAAAi/shinchan-dance.gif" class="character">
+          <span class="moving-text">✨ Swagat hai aapka... Queen Khusu 🙇 ✨</span>
+          <img src="https://media.tenor.com/2roX3uxz_68AAAAM/nobita-nobi-dance.gif" class="character">
+        `;
+
+        // Add Perfect song (YouTube embed with autoplay)
+        music.src = "https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1";
+
+        setTimeout(() => {
+          window.location.href = "second.html";
+        }, 8000);
       } else {
-        document.getElementById("message").innerText =
-          "Kon ho tm dushmaan, tum meri khusu nahi ho...chali jaao yaha seh 😑";
+        messageDiv.innerHTML = "Kon ho tm dushmaan, tum meri Khusu nahi ho... chali jaao yaha se 😑";
       }
     }
   </script>

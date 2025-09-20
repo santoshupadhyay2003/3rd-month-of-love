@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Special Page</title>
+  <title>Happy 3rd Month Anniversary 💖</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -15,21 +15,42 @@
 
     h1 {
       color: #ff3399;
-      font-size: 36px;
+      font-size: 32px;
       text-shadow: 1px 1px #fff;
     }
 
+    .slideshow {
+      max-width: 400px;
+      margin: auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .slideshow img {
+      width: 100%;
+      display: none;
+    }
+
     p {
+      margin-top: 20px;
       font-size: 20px;
       color: #444;
     }
   </style>
 </head>
 <body>
-  <h1>🌸 Welcome Queen Khusu 🌸</h1>
-  <p>Yeh tumhare liye ek chhoti si aesthetic surprise hai 💖</p>
+  <h1>🌸 Happy 3rd Month Anniversary Queen Khusu 🌸</h1>
 
-  <!-- Background music -->
+  <div class="slideshow">
+    <img src="photo1.jpg" class="slides" style="display:block;">
+    <img src="photo2.jpg" class="slides">
+    <img src="photo3.jpg" class="slides">
+  </div>
+
+  <p>Tum meri duniya ho 💕</p>
+
+  <!-- Background Music -->
   <audio id="bg-music" autoplay loop>
     <source src="perfect.mp3" type="audio/mpeg">
   </audio>
@@ -38,6 +59,21 @@
     // low volume music
     const audio = document.getElementById("bg-music");
     audio.volume = 0.2;
+
+    // slideshow
+    let index = 0;
+    const slides = document.getElementsByClassName("slides");
+
+    function showSlides() {
+      for (let i=0; i<slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      index++;
+      if (index > slides.length) { index = 1; }
+      slides[index-1].style.display = "block";
+      setTimeout(showSlides, 2500); // 2.5 seconds per slide
+    }
+    showSlides();
   </script>
 </body>
 </html>
